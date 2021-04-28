@@ -1,0 +1,20 @@
+TS:-Dựa trên hướng đối tượng                JS:-Dựa trên hướng đối tượng
+-định kiểu dữ liệu 				-chỉ có ES5
+-hỗ trợ ES6:+annow function,class,map,promise	 -không có kiểu dữ liệu 		                       
+-hướng đối tượng tốt hơn
++có đủ 4 tính chất:
+-ts là bản mở rộng của js 
+			
+*khai báo biến:
+x:number
+x:string
+kdl:number,Sring,boolean,any:kdl bất kì,object(class/interface),Date,null,undefine.
+
+*khai báo class
+*khai báo interface
+interface tên lop{
+thuoc tinh1 ?:kdl
+}
+
+
+
