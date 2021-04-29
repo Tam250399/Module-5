@@ -16,5 +16,23 @@ interface tên lop{
 thuoc tinh1 ?:kdl
 }
 
+Kiến trúc Agular
+compunent là các thành để cấu thành nên ứng dụng agular 
+compunent theo cấu trúc root-try, là 1 class trong ts để angular hiểu thì phải dùng meta data
+@compunent
++selector-product:
++templateUrl:
++cssUrl:
+thành phần compunent:
+-ts:chứa code logic
+-html:template
+-css:style
+-spec:file test
 
-
+Data Biding
+-có 2 loại BingDing
++One Way BinDing:Property Binding :lấy dữ liệu bên ts
+		:Even BinDing:bắt sự kiện bên html gửi về ts
++Two Way BinDing:
+Event BinDing + property binding
+(event)+[property]
