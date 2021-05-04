@@ -31,8 +31,25 @@ thành phần compunent:
 
 Data Biding
 -có 2 loại BingDing
-+One Way BinDing:Property Binding :lấy dữ liệu bên ts
++One Way BinDing:Property Binding :lấy dữ liệu bên ts truyền sang html
 		:Even BinDing:bắt sự kiện bên html gửi về ts
 +Two Way BinDing:
 Event BinDing + property binding
 (event)+[property]
+
+
+*vòng đời của component:
+-contructor dc chay đầu tiên
+-ngOnchanges dc chạy để phát hiện thay đổi của component
+-ngOnInit chạy 1 lần để khởi tạo gtri component chạy sau onchange
+-ngDocheck dc gọi nhiều lần ,để kiểm tra component khi chạy
+-ngOnDestroy chạy 1 lần duy nhất để kết thúc vòng đời component
+
+*có 3 loại Directive hỗ trợ xây dựng giao diện
+-Coponent directive => chính là component
+-Structural direction :xử lý về mặt cấu trúc giao diện 
+*ngFor:dc sd duyệt vòng lặp giống th:each
+*ngIf:xử lý mặt logic dk
+*ngSwith:
+
+*SPA: Single page application
