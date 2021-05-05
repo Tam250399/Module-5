@@ -1,0 +1,95 @@
+<h1>List Student</h1>
+<table>
+  <tr>
+    <td>id</td>
+    <td>Name</td>
+    <td>Address</td>
+    <td>Mark</td>
+    <td>Option</td>
+    <td>Update</td>
+    <td>Delete</td>
+  </tr>
+  <ng-container *ngFor="let student of listStudent ; index as i" >
+    <tr>
+      <td>{{student.id}}</td>
+      <td>{{student.name}}</td>
+      <td>{{student.address}}</td>
+      <td>{{student.mark}}</td>
+      <td>{{student.classes}}</td>
+      <td><button (click)="showUpdateForm(i)">Update</button></td>
+      <td><button (click)="remoStudent(i)">Delete</button></td>
+    </tr>
+  </ng-container>
+
+</table>
+<button (click)="openForm()">Create Student</button>
+<ng-container *ngIf="isShowCreateForm">
+  <h1>Show Create Form</h1>
+  <table>
+    <tr>
+      <td>id:</td>
+      <td><input type="number" [(ngModel)]="student.id" name="id"></td>
+    </tr>
+    <tr>
+      <td>name:</td>
+      <td><input type="text" [(ngModel)]="student.name" name="name"></td>
+    </tr>
+    <tr>
+      <td>address:</td>
+      <td><input type="text" [(ngModel)]="student.address" name="address"></td>
+    </tr>
+    <tr>
+      <td>mark:</td>
+      <td><input type="text" [(ngModel)]="student.mark" name="mark"></td>
+    </tr>
+    <tr>
+      <td>class:</td>
+      <td>
+        <select name="classes" [(ngModel)]="student.classes">
+          <option ngValue="">choose class</option>
+          <option *ngFor="let classes of listClass">{{classes}}</option>
+        </select>
+      </td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><input type="button" value="create" (click)="addNewStudent()"></td>
+    </tr>
+  </table>
+</ng-container>
+
+<ng-container *ngIf="isShowUpdateForm">
+  <h1>Show Update Form</h1>
+  <table>
+    <tr>
+      <td>id:</td>
+      <td><input type="number" [(ngModel)]="studentUpdate.id" name="id"></td>
+    </tr>
+    <tr>
+      <td>name:</td>
+      <td><input type="text" [(ngModel)]="studentUpdate.name" name="name"></td>
+    </tr>
+    <tr>
+      <td>address:</td>
+      <td><input type="text" [(ngModel)]="studentUpdate.address" name="address"></td>
+    </tr>
+    <tr>
+      <td>mark:</td>
+      <td><input type="text" [(ngModel)]="studentUpdate.mark" name="mark"></td>
+    </tr>
+    <tr>
+      <td>class:</td>
+      <td>
+        <select name="classes" [(ngModel)]="studentUpdate.classes">
+          <option ngValue="">choose class</option>
+          <option *ngFor="let classes of listClass">{{classes}}</option>
+        </select>
+      </td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><input type="button" value="Update" (click)="UpdateStudent(currenIndex)"></td>
+    </tr>
+  </table>
+</ng-container>
+

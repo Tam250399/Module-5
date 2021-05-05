@@ -50,6 +50,21 @@ Event BinDing + property binding
 -Structural direction :xử lý về mặt cấu trúc giao diện 
 *ngFor:dc sd duyệt vòng lặp giống th:each
 *ngIf:xử lý mặt logic dk
-*ngSwith:
+*ngSwith:switch-case
+
+-Attribute directive:các directive xử lý về thuộc tính của css [style.background] = 
 
 *SPA: Single page application
+
+
+
+**chuyền dữ liệu cha sang con 
+@input 
+-property biding và biding theo thuộc tính và sd ngoặc []
+
+**chuyền dữ liệu con sang cha {} 
+-sd event biding phải sd @output ,event biding()
+-cú pháp:<select_con (tên_sự_kiện)></selector_con>
+có thể sd input và out đồng thời
+
+
