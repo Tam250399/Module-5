@@ -41,7 +41,8 @@ export class ListStudentComponent implements OnInit {
       id : this.listStudent[i].id,
       name : this.listStudent[i].name,
       address : this.listStudent[i].address,
-      mark : this.listStudent[i].mark
+      mark : this.listStudent[i].mark,
+      classes: this.listStudent[i].classes
     };
   }
 
@@ -49,5 +50,15 @@ export class ListStudentComponent implements OnInit {
     this.listStudent[index] = this.studentUpdate;
     this.studentUpdate = {};
 
+  }
+
+  findStudentByName(value) {
+    const student = [];
+    for (let i = 0; i < this.listStudent.length; i++) {
+      if (this.listStudent[i].name.includes(value)) {
+        student.push(this.listStudent[i]);
+      }
+    }
+    this.listStudent = student;
   }
 }

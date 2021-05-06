@@ -3,20 +3,16 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { ListStudentComponent } from './student/list-student/list-student.component';
-import {FormsModule} from '@angular/forms';
-import { SearchStudentComponent } from './student/search-student/search-student.component';
+import { ProgressBarComponent } from './progress-bar/progress-bar.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    ListStudentComponent,
-    SearchStudentComponent
+    ProgressBarComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
-    FormsModule
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]
