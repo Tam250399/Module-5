@@ -67,4 +67,19 @@ Event BinDing + property binding
 -cú pháp:<select_con (tên_sự_kiện)></selector_con>
 có thể sd input và out đồng thời
 
+*ngModel có 3 loại:
+-ngModel:khai báo 1 form control trong template driven form
+-[ngModel]:để khai báo form control truyền dữ liệu sang html => update 1 sản phẩm
+-[(ngModel)]:vừa được khai báo form control,và vừa biding 2 chiều
+
+Agular Form có 2 loại:
+-Teamplate Driven Form:để khai báo form group và form control bên phía template và phải import Form Module
+--ngModel:Một form control của Template Driven Form
+-- 
+-Reative Form:các form group và form control đc khai báo bên TS
+cú pháp:formGroup:FormGroup = new Form Group({
+
+formControl:new FormControl([])
+})
+
 
