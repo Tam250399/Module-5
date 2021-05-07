@@ -47,7 +47,7 @@ Event BinDing + property binding
 
 *có 3 loại Directive hỗ trợ xây dựng giao diện
 -Coponent directive => chính là component
--Structural direction :xử lý về mặt cấu trúc giao diện 
+-Structural direction :xử lý về mặt cấu trúc giao diện,thay dổi cấu trúc của DOM và thêm vào và lấy ra
 *ngFor:dc sd duyệt vòng lặp giống th:each
 *ngIf:xử lý mặt logic dk
 *ngSwith:switch-case
