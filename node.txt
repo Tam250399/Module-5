@@ -83,3 +83,14 @@ formControl:new FormControl([])
 })
 
 
+*Service
+-truyền dữ liệu giữa các component vs nhau 
+-sd cơ chế tiêm phụ thuộc là tiêm contructor
+-Tính tái sd cao 
+*cú pháp: ng g s tên_service 
+
+
+*Router 
+-Router trong anglar sd để điều hướng component khác nhau
+-sd routerlink sẽ lấy dữ liệu ở các component và đổ dữ liệu vào trong thẻ <router-outlet></router-outlet>
+canACtivate: sd cơ chế bảo mật cho angualar[authgua]
