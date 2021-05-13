@@ -12,14 +12,7 @@ export class ListStudentComponent implements OnInit {
   listStudent: Student[] = [];
   currenIndex =  -1;
 
-  //  student: Student = {
-  //    classes : ''
-  //  };
-  // studentUpdate: Student = {};
 
-  // isShowUpdateForm: boolean;
-
-  // listClass: string[] = ['C1120G1' , 'C1120G2' , 'C1120G3'];
   constructor(private studentService: StudentService) {
   }
 
@@ -30,12 +23,14 @@ export class ListStudentComponent implements OnInit {
 
 
   getAll() {
-    this.listStudent = this.studentService.getAllStudent();
+    this.studentService.getAllStudent().subscribe(students =>{
+      this.listStudent = students;
+    });
   }
 
-  remoStudent(i: number) {
-    this.listStudent.splice(i, 1);
-  }
+  // remoStudent(i: number) {
+  //   this.listStudent.splice(i, 1);
+  // }
 
   findStudentByName(value) {
     const student = [];

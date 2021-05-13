@@ -2,23 +2,31 @@
 <form [formGroup]="studentForm" (ngSubmit)="updateStudentInfo(index)">
   <h1> Show Update Form</h1>
   <table>
-    <tr>
-      <td>Id:</td>
-      <td><input type="number" formControlName="id"></td>
-      <td *ngIf="id?.errors?.required && id?.touched">Trường này phải được điền</td>
-    </tr>
+<!--    <tr>-->
+<!--      <td>Id:</td>-->
+<!--      <td><input type="number" formControlName="id"></td>-->
+<!--      <td *ngIf="id?.errors?.required && id?.touched">Trường này phải được điền</td>-->
+<!--    </tr>-->
     <tr>
       <td>Name:</td>
-      <td><input type="text" formControlName="fullName"></td>
+      <td><input  type="text" formControlName="name"  name="name"></td>
     </tr>
     <tr>
       <td>Address:</td>
-      <td><input type="text" formControlName="address"></td>
+      <td><input  type="text" formControlName="address" name="address"></td>
     </tr>
     <tr>
       <td>Mark:</td>
-      <td><input type="number" formControlName="mark"></td>
+      <td><input  type="number" formControlName="mark" name="mark"></td>
     </tr>
+<!--    <tr>-->
+<!--      <td>Classes:</td>-->
+<!--      <td>-->
+<!--        <select [(ngModel)]="student.classes" name="classes">-->
+<!--          <option *ngFor="let classes of listClass" [value]="classes">{{classes}}</option>-->
+<!--        </select>-->
+<!--      </td>-->
+<!--    </tr>-->
     <tr>
       <td></td>
       <td><input type="submit" value="Update"></td>

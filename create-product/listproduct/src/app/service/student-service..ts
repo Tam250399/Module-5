@@ -1,26 +1,35 @@
 import { Injectable } from '@angular/core';
 import {Student} from '../model/student';
-
+import {Observable} from 'rxjs';
+import {HttpClient} from '@angular/common/http';
+import {hasImportOrReexportStatements} from '@angular/compiler-cli/ngcc/src/dependencies/esm_dependency_host';
+import {environment} from '../../environments/environment';
+const API_URL = `${environment.apiURL}`;
 @Injectable({
   providedIn: 'root'
 })
 export class StudentService {
-    students: Student [] = [];
-  constructor() { }
 
-  getAllStudent() {
-    return this.students;
+  constructor(private http: HttpClient) { }
+
+  getAllStudent(): Observable<Student[]> {
+    return this.http.get<Student[]>(`${API_URL}/students`);
   }
 
-  createNewStudent(student: Student) {
-  this.students.push(student);
+  getStudentById(id: number): Observable<Student> {
+return this.http.get<Student>(`${API_URL}/students/${id}`);
   }
 
-  updateStudentInfo(index: number , student: Student) {
-    this.students[index] = student;
+  createNewStudent(student: Student): Observable<Student> {
+    return this.http.post<Student>(`${API_URL}/students`, student);
   }
 
-  deleteStudent(index: number) {
-    this.students.splice(index, 1);
+
+  updateStudentInfo(id: number , student: Student): Observable<Student> {
+    return this.http.put<Student>(`${API_URL}/students/${id}`, student);
+  }
+
+  deleteStudent(id: number): Observable<Student> {
+    return this.http.delete<Student>(`${API_URL}/students/${id}`);
   }
 }

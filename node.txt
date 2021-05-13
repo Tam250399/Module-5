@@ -94,3 +94,23 @@ formControl:new FormControl([])
 -Router trong anglar sd để điều hướng component khác nhau
 -sd routerlink sẽ lấy dữ liệu ở các component và đổ dữ liệu vào trong thẻ <router-outlet></router-outlet>
 canACtivate: sd cơ chế bảo mật cho angualar[authgua]
+
+
+
+Module
+-mudule là 1 thành phần trong cấu trúc angular 1 dự án đk tạo nên 1 hoặc nhiều module khac nhau
+-trong 1 module chứa các component,directive,service
+-angular có điểm mạnh tính module hóa
+module 2 loại:
+-loại có sẵn: formModule,ReactiveModule,HttpClientModule
+-loại mình tự xây dựng 
+sd: ng g m tên_module
+tạo module router: ng g m ten_module -routing
+
+cách gọi từ cha sang con:sd loadChilden
+-lợi ích sd module => lazy loading 
+
+node:1 component thì chỉ đk declaration vào trog 1 module
+-mỗi entity dể thành 1 module => crud của entity đấy
+-SharedModule:Navbar component, sidebar component
+-MeteriaModule =>chứa các component

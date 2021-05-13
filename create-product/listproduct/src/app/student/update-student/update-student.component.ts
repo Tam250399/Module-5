@@ -11,20 +11,18 @@ import {ActivatedRoute} from '@angular/router';
 })
 export class UpdateStudentComponent implements OnInit {
       student: Student = {};
-      studentForm: FormGroup;
+      studentForm: FormGroup = new FormGroup({
+        name: new FormControl(),
+        address: new FormControl(),
+        mark: new FormControl()
+      });
       index = -1;
   constructor(private studentService: StudentService,
               private activatedRoute: ActivatedRoute ) {
-    this.activatedRoute.paramMap.subscribe(paramMap => {
+    this.activatedRoute.paramMap.subscribe(paramMap =>{
       this.index = +paramMap.get('id');
-      const student  = this.getStudentByIndex(this.index);
-      this.studentForm = new FormGroup({
-        id: new FormControl(student.id),
-        name: new FormControl(student.name ),
-        address: new FormControl(student.address),
-        mark: new FormControl(student.mark)
-      });
-    });
+      this.getStudentByIndex(this.index);
+    })
   }
 
   get id() {
@@ -36,12 +34,23 @@ export class UpdateStudentComponent implements OnInit {
   }
 
   getStudentByIndex(index: number) {
-    const students = this.studentService.getAllStudent();
-    return students [index];
+    this.studentService.getStudentById(index).subscribe(thisStudent =>{
+      this.studentForm = new FormGroup({
+        name: new FormControl(thisStudent.name),
+        address: new FormControl(thisStudent.address),
+        mark: new FormControl(thisStudent.mark)
+      })
+    })
   }
 
   updateStudentInfo(index) {
     const newStudent = this.studentForm.value;
-    this.studentService.updateStudentInfo(index, newStudent);
+    this.studentService.updateStudentInfo(index, newStudent).subscribe(() =>{
+      alert("Successfuly updated");
+    },error => {
+      console.log(error);
+      alert("Fail to Update")
+      }
+    );
   }
 }

@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import {Student} from '../../model/student';
 import {StudentService} from '../../service/student-service.';
 import {NgForm} from '@angular/forms';
+import {ClassesService} from '../../service/classes.service';
+import {Classes} from '../../model/classes';
 
 @Component({
   selector: 'app-create-student',
@@ -14,17 +16,40 @@ export class CreateStudentComponent implements OnInit {
     classes: ''
   };
 
+    listClass: Classes [] = [];
 
-  constructor(private studentService: StudentService) {
+
+  constructor(private studentService: StudentService,
+              private classService: ClassesService
+  ) {
   }
 
   ngOnInit() {
+    this.getAllClass();
   }
 
+  getAllClass() {
+    this.classService.getAllClasses().subscribe(classes => {
+      this.listClass = classes;
+    });
+  }
 
   addNewStudent(form: NgForm) {
-    const newStudent = form.value;
-    this.studentService.createNewStudent(newStudent);
-    this.student = {};
+    const newStudent = {
+      name: form.value.name,
+      address: form.value.address,
+      mark: form.value.mark,
+      classes: {
+        id: form.value.classId,
+      }
+    };
+    this.studentService.createNewStudent(newStudent).subscribe(() => {
+      console.log('tạo thành công');
+      this.student = {};
+    }, error => {
+      console.log(error);
+      }
+    );
+
   }
 }

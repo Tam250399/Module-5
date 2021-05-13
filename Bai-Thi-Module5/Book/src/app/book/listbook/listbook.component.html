@@ -1,0 +1,35 @@
+<div class="row">
+  <div class="col-md-3">
+
+  </div>
+  <div class="col-md-6">
+    <button routerLink="/books/create">Thêm sách mới</button>
+    <h3 style="float: right">Có:{{books.length}} cuốn sách</h3>
+    <table class="table"  class="table table-bordered table-striped">
+      <thead class="table-dark">
+      <tr>
+        <td>#</td>
+        <td>Tên sách</td>
+        <td>Tác giả</td>
+        <td rowspan="2"></td>
+      </tr>
+      </thead>
+      <ng-container *ngFor="let s of books; index as i ">
+        <tr>
+          <td>{{i+1}}</td>
+          <td><a [routerLink]="['/books/show',s.id]">{{s.title}}</a></td>
+          <td>{{s.author}}</td>
+          <td>
+            <a [routerLink]="['/books/delete',s.id]" class="btn btn-outline-danger">Xóa</a> ||
+            <a [routerLink]="['/books/update',s.id]" class="btn btn-outline-primary">Sửa</a>
+          </td>
+        </tr>
+      </ng-container>
+    </table>
+  </div>
+  <div class="col-md-3"></div>
+</div>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+

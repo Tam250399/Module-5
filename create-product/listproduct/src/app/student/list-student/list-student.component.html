@@ -16,7 +16,7 @@
       <td>{{student.name}}</td>
       <td>{{student.address}}</td>
       <td>{{student.mark}}</td>
-      <td>{{student.classes}}</td>
+      <td>{{student.classes.name}}</td>
       <td><a [routerLink]="['/students/edit',i]">Edit</a></td>
       <td><button (click)="remoStudent(i)">Delete</button></td>
     </tr>
